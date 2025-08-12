@@ -31,3 +31,34 @@ This project implements a custom 32-bit multi-cycle CPU in Verilog with a compre
 
 ## Instruction Format
 
+31:27	26:22	21:17	16	15:11	10:0 (unused or immediate)
+opcode	rdst	rsrc1	imm	rsrc2	immediate / unused
+
+
+## Usage
+- Load the instruction memory from `inst_data.mem` (binary format)
+- The CPU executes instructions sequentially or branches based on condition flags
+- The CPU halts execution upon receiving the `halt` instruction
+- Input data can be supplied via `din` and output read from `dout`
+
+## Files
+- `top.v`: Main CPU module including FSM, register file, ALU operations, and memory interfaces
+- `inst_data.mem`: Binary file containing machine instructions for the CPU (user-defined)
+
+## Simulation
+- Simulate using any Verilog simulator (Icarus Verilog, ModelSim, etc.)
+- Clock and reset signals control CPU operation
+- Monitor `dout` for data output and internal signals for debugging
+
+## Future Improvements
+- Extend instruction set with floating point or SIMD operations
+- Add pipeline stages for performance improvements
+- Implement interrupt handling and I/O peripherals
+- Expand memory size and addressable space
+
+## Author
+Bikash Kumar Mishra
+
+## License
+This project is released under the MIT License.
+
